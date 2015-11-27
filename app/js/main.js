@@ -29,6 +29,9 @@ class Refresh {
     script.src = `https://api.douban.com/v2/event/list?callback=showList&type=${that.type}&count=${that.count}&loc=${that.loc}&start=${that.count*that.start}`;
     body.appendChild(script);
     body.removeChild(script);
+    return this;
+  }
+  init(){
     this.bindEvent();
   }
   bindEvent(){
@@ -62,4 +65,4 @@ class Refresh {
   }
 }
 var refresh = new Refresh();
-refresh.getData();
+refresh.getData().init();
